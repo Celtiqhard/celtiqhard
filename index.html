@@ -176,6 +176,7 @@
 #merch .merch-pista{font-size:.9rem;opacity:.6;margin-top:.5rem}
 #merch .merch-prendas{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin:2.5rem 0 1rem;padding:0;list-style:none}
 #merch .merch-prendas li{border:1px solid #444;border-radius:999px;padding:.55rem 1.2rem;font-weight:600}
+#merch .merch-prendas li strong{color:#dc3545;font-weight:900;margin-left:.35rem}
 #merch .merch-pedido{max-width:34rem;margin:1.5rem auto 2rem;line-height:1.6;opacity:.9}
 #merch .btn-merch{display:inline-block;background:#dc3545;color:#fff;font-weight:800;font-size:1.05rem;padding:1rem 2.25rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
 #merch .btn-merch:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(220,53,69,.6);color:#fff}
@@ -318,9 +319,9 @@
     <div class="merch-puntos" aria-label="Elegir modelo"></div>
 
     <ul class="merch-prendas" aria-label="Prendas disponibles">
-      <li>Camiseta normal</li>
-      <li>Camiseta oversize</li>
-      <li>Sudadera oversize</li>
+      <li>Camiseta normal <strong>15 €</strong></li>
+      <li>Camiseta oversize <strong>20 €</strong></li>
+      <li>Sudadera oversize <strong>35 €</strong></li>
     </ul>
     <p class="merch-pedido">Cualquiera de los tres diseños está disponible en las tres prendas. Pulsa "Pedir" debajo del modelo que quieras y rellena el formulario. Se entrega y se paga en mano el día del evento.</p>
     <p class="merch-dudas">¿Dudas? <a href="https://ig.me/m/celtiqhard" target="_blank" rel="noopener">Escríbenos por Instagram</a></p>
@@ -354,9 +355,9 @@
       <label for="pedido-prenda">Prenda</label>
       <select id="pedido-prenda" name="Prenda" required>
         <option value="">Elige una opción</option>
-        <option>Camiseta normal</option>
-        <option>Camiseta oversize</option>
-        <option>Sudadera oversize</option>
+        <option value="Camiseta normal (15 €)">Camiseta normal: 15 €</option>
+        <option value="Camiseta oversize (20 €)">Camiseta oversize: 20 €</option>
+        <option value="Sudadera oversize (35 €)">Sudadera oversize: 35 €</option>
       </select>
 
       <label for="pedido-talla">Talla</label>
