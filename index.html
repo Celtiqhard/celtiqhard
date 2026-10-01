@@ -146,6 +146,14 @@
 #entradas .btn-entradas:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(220,53,69,.6);color:#fff}
 #entradas .btn-entradas:focus-visible{outline:3px solid #fff;outline-offset:4px}
 /* ===== FIN SECCIÓN ENTRADAS ===== */
+
+/* ===== CARRUSEL DJs (NUEVO) ===== */
+#features017-1k .embla__viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#features017-1k .embla__viewport::-webkit-scrollbar{display:none}
+#features017-1k .embla__container{touch-action:auto;transform:none!important}
+#features017-1k .embla__slide{scroll-snap-align:center;flex-shrink:0}
+#features017-1k .embla__button{cursor:pointer;z-index:5}
+/* ===== FIN CARRUSEL DJs ===== */
 </style>
 </head>
 <body>
@@ -597,5 +605,73 @@
     </div>
 
 
+</section>
+
+<!-- ===== SCRIPTS MENÚ MÓVIL (NUEVO) ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Cierra el menú del móvil al pulsar una opción
+  document.querySelectorAll('#navbarSupportedContent .nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var menu = document.getElementById('navbarSupportedContent');
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
+    });
+  });
+</script>
+<!-- ===== FIN SCRIPTS MENÚ MÓVIL ===== -->
+
+<!-- ===== SCRIPTS CARRUSEL DJs (NUEVO) ===== -->
+<script>
+  (function () {
+    var seccion = document.getElementById('features017-1k');
+    if (!seccion) return;
+    var viewport = seccion.querySelector('.embla__viewport');
+    var prev = seccion.querySelector('.embla__button--prev');
+    var next = seccion.querySelector('.embla__button--next');
+    if (!viewport) return;
+
+    function paso() {
+      var slide = viewport.querySelector('.embla__slide');
+      if (!slide) return viewport.clientWidth;
+      var estilo = getComputedStyle(slide);
+      return slide.offsetWidth + parseFloat(estilo.marginLeft) + parseFloat(estilo.marginRight);
+    }
+    function siguiente() {
+      if (viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 5) {
+        viewport.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        viewport.scrollBy({ left: paso(), behavior: 'smooth' });
+      }
+    }
+    function anterior() {
+      if (viewport.scrollLeft <= 5) {
+        viewport.scrollTo({ left: viewport.scrollWidth, behavior: 'smooth' });
+      } else {
+        viewport.scrollBy({ left: -paso(), behavior: 'smooth' });
+      }
+    }
+
+    if (next) { next.type = 'button'; next.addEventListener('click', function () { siguiente(); reiniciar(); }); }
+    if (prev) { prev.type = 'button'; prev.addEventListener('click', function () { anterior(); reiniciar(); }); }
+
+    // Pase automático cada 4 segundos (se pausa al tocar o pasar el ratón)
+    var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var timer = null;
+    function arrancar() { if (!sinMovimiento && !timer) timer = setInterval(siguiente, 4000); }
+    function parar() { clearInterval(timer); timer = null; }
+    function reiniciar() { parar(); arrancar(); }
+    seccion.addEventListener('mouseenter', parar);
+    seccion.addEventListener('mouseleave', arrancar);
+    viewport.addEventListener('touchstart', parar, { passive: true });
+    viewport.addEventListener('touchend', function () { setTimeout(arrancar, 3000); }, { passive: true });
+    arrancar();
+  })();
+</script>
+<!-- ===== FIN SCRIPTS CARRUSEL DJs ===== -->
+</body>
+
 <!-- Mirrored from celtiqhard.mobirisesite.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2026 05:30:34 GMT -->
 </html>
+
