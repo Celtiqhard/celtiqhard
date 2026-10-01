@@ -154,6 +154,64 @@
 #features017-1k .embla__slide{scroll-snap-align:center;flex-shrink:0}
 #features017-1k .embla__button{cursor:pointer;z-index:5}
 /* ===== FIN CARRUSEL DJs ===== */
+
+/* ===== SECCIÓN MERCHANDISING (NUEVO) ===== */
+#merch{background:#000;color:#fff;font-family:'Inter Tight',sans-serif;padding:3rem 1rem 5rem;text-align:center;scroll-margin-top:80px;border-top:1px solid #222}
+#merch h2{font-size:clamp(2rem,6vw,3.25rem);font-weight:900;color:#fff;margin:0 0 .75rem}
+#merch .merch-intro{max-width:36rem;margin:0 auto 2.5rem;opacity:.85;font-size:1.05rem;line-height:1.5}
+#merch .merch-carrusel{position:relative;max-width:900px;margin:0 auto}
+#merch .merch-viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border-radius:12px}
+#merch .merch-viewport::-webkit-scrollbar{display:none}
+#merch .merch-slide{flex:0 0 100%;scroll-snap-align:center;margin:0}
+#merch .merch-slide button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+#merch .merch-slide img{display:block;width:100%;height:auto;border-radius:12px}
+#merch .merch-slide figcaption{margin-top:.9rem;font-weight:800;font-size:1.25rem}
+#merch .merch-flecha{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
+#merch .merch-flecha:hover{background:#dc3545}
+#merch .merch-flecha--prev{left:8px}
+#merch .merch-flecha--next{right:8px}
+#merch .merch-puntos{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
+#merch .merch-puntos button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:#555;cursor:pointer}
+#merch .merch-puntos button[aria-current="true"]{background:#dc3545}
+#merch .merch-pista{font-size:.9rem;opacity:.6;margin-top:.5rem}
+#merch .merch-prendas{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin:2.5rem 0 1rem;padding:0;list-style:none}
+#merch .merch-prendas li{border:1px solid #444;border-radius:999px;padding:.55rem 1.2rem;font-weight:600}
+#merch .merch-pedido{max-width:34rem;margin:1.5rem auto 2rem;line-height:1.6;opacity:.9}
+#merch .btn-merch{display:inline-block;background:#dc3545;color:#fff;font-weight:800;font-size:1.05rem;padding:1rem 2.25rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+#merch .btn-merch:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(220,53,69,.6);color:#fff}
+#merch button:focus-visible,#merch a:focus-visible,#merch-zoom button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+/* Ventana de zoom */
+#merch-zoom{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:2000;display:none}
+#merch-zoom.abierto{display:block}
+#merch-zoom .zoom-area{width:100%;height:100%;overflow:auto;display:flex;align-items:center;justify-content:center;cursor:zoom-in}
+#merch-zoom img{max-width:100%;max-height:100%;object-fit:contain}
+#merch-zoom.ampliado .zoom-area{display:block;cursor:zoom-out}
+#merch-zoom.ampliado img{max-width:none;max-height:none;width:250%}
+#merch-zoom .zoom-cerrar{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;width:48px;height:48px;border-radius:50%;border:0;background:#dc3545;color:#fff;font-size:1.75rem;line-height:1;cursor:pointer;z-index:2001}
+#merch-zoom .zoom-ayuda{position:fixed;bottom:16px;left:0;right:0;text-align:center;color:#fff;opacity:.7;font-family:'Inter Tight',sans-serif;font-size:.9rem;pointer-events:none}
+@media (min-width:768px){#merch-zoom.ampliado img{width:180%}}
+/* ===== FIN SECCIÓN MERCHANDISING ===== */
+
+/* ===== FORMULARIO DE PEDIDO (NUEVO) ===== */
+#merch .btn-pedir{margin-top:.75rem;background:#dc3545;color:#fff;border:0;border-radius:999px;padding:.7rem 1.75rem;font-weight:800;font-size:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
+#merch .btn-pedir:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(220,53,69,.6)}
+#merch .merch-dudas{opacity:.75}
+#merch .merch-dudas a{color:#fff;text-decoration:underline}
+#merch-form{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;font-family:'Inter Tight',sans-serif}
+#merch-form.abierto{display:flex}
+#merch-form .form-caja{position:relative;background:#111;color:#fff;border:1px solid #333;border-radius:16px;width:100%;max-width:440px;max-height:calc(100% - 2rem);overflow-y:auto;padding:2rem 1.5rem 1.5rem;text-align:left}
+#merch-form h3{font-size:1.5rem;font-weight:900;margin:0 2.5rem 1.25rem 0;color:#fff}
+#merch-form label{display:block;font-weight:600;font-size:.95rem;margin:1rem 0 .35rem}
+#merch-form input[type=text],#merch-form select{width:100%;background:#000;color:#fff;border:1px solid #555;border-radius:8px;padding:.75rem;font-size:16px;font-family:inherit}
+#merch-form input:focus,#merch-form select:focus{outline:none;border-color:#dc3545;box-shadow:0 0 0 2px rgba(220,53,69,.4)}
+#merch-form .form-nota{font-size:.9rem;opacity:.7;margin:1.25rem 0 .5rem}
+#merch-form .form-mensaje{color:#ff6b78;font-size:.95rem;min-height:1.2em;margin:0 0 .75rem}
+#merch-form .btn-merch{display:block;width:100%;border:0;background:#dc3545;color:#fff;font-weight:800;font-size:1.05rem;padding:.9rem;border-radius:999px;cursor:pointer}
+#merch-form .btn-merch:disabled{opacity:.6;cursor:wait}
+#merch-form .form-cerrar{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#333;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
+#merch-form .form-ok-titulo{font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
+#merch-form button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+/* ===== FIN FORMULARIO DE PEDIDO ===== */
 </style>
 </head>
 <body>
@@ -202,6 +260,7 @@
 						<a class="nav-link link text-white text-primary display-4" href="index.html#features010-1l" aria-expanded="false">Formato</a>
 					</li><li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#features028-1m">Oferta a Salas</a></li><li class="nav-item"><a class="nav-link link text-white text-primary display-4" href="index.html#features017-1k">Djs</a></li>
 					<li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#entradas">Entradas</a></li>
+					<li class="nav-item"><a class="nav-link link text-white display-4" href="index.html#merch">Merch</a></li>
 					<li class="nav-item">
 						<a class="nav-link link text-white display-4" href="index.html#contacts02-9">Contacto</a>
 					</li></ul>
@@ -222,6 +281,107 @@
   </div>
 </section>
 <!-- ===== FIN SECCIÓN ENTRADAS ===== -->
+
+<!-- ===== SECCIÓN MERCHANDISING (NUEVO) ===== -->
+<section id="merch">
+  <div class="container">
+    <h2>Merchandising</h2>
+    <p class="merch-intro">Tres diseños oficiales de Celtiq Hard. Pulsa en la foto para verla en grande.</p>
+
+    <div class="merch-carrusel">
+      <button class="merch-flecha merch-flecha--prev" type="button" aria-label="Modelo anterior">&#8249;</button>
+      <div class="merch-viewport">
+        <figure class="merch-slide">
+          <button type="button" data-zoom="merch/morada.jpeg" aria-label="Ampliar modelo Morada">
+            <img src="merch/morada.jpeg" alt="Camiseta Celtiq Hard modelo Morada, delante y detrás" loading="lazy">
+          </button>
+          <figcaption>Modelo Morada</figcaption>
+          <button type="button" class="btn-pedir" data-modelo="Morada">Pedir modelo Morada</button>
+        </figure>
+        <figure class="merch-slide">
+          <button type="button" data-zoom="merch/gris.jpeg" aria-label="Ampliar modelo Gris">
+            <img src="merch/gris.jpeg" alt="Camiseta Celtiq Hard modelo Gris, delante y detrás" loading="lazy">
+          </button>
+          <figcaption>Modelo Gris</figcaption>
+          <button type="button" class="btn-pedir" data-modelo="Gris">Pedir modelo Gris</button>
+        </figure>
+        <figure class="merch-slide">
+          <button type="button" data-zoom="merch/azul.jpeg" aria-label="Ampliar modelo Azul">
+            <img src="merch/azul.jpeg" alt="Camiseta Celtiq Hard modelo Azul, delante y detrás" loading="lazy">
+          </button>
+          <figcaption>Modelo Azul</figcaption>
+          <button type="button" class="btn-pedir" data-modelo="Azul">Pedir modelo Azul</button>
+        </figure>
+      </div>
+      <button class="merch-flecha merch-flecha--next" type="button" aria-label="Modelo siguiente">&#8250;</button>
+    </div>
+    <div class="merch-puntos" aria-label="Elegir modelo"></div>
+
+    <ul class="merch-prendas" aria-label="Prendas disponibles">
+      <li>Camiseta normal</li>
+      <li>Camiseta oversize</li>
+      <li>Sudadera oversize</li>
+    </ul>
+    <p class="merch-pedido">Cualquiera de los tres diseños está disponible en las tres prendas. Pulsa "Pedir" debajo del modelo que quieras y rellena el formulario. Se entrega y se paga en mano el día del evento.</p>
+    <p class="merch-dudas">¿Dudas? <a href="https://ig.me/m/celtiqhard" target="_blank" rel="noopener">Escríbenos por Instagram</a></p>
+  </div>
+</section>
+
+<div id="merch-zoom" role="dialog" aria-modal="true" aria-label="Imagen ampliada" aria-hidden="true">
+  <button class="zoom-cerrar" type="button" aria-label="Cerrar">&times;</button>
+  <div class="zoom-area"><img src="" alt=""></div>
+  <p class="zoom-ayuda">Toca la imagen para acercar o alejar</p>
+</div>
+<!-- ===== FIN SECCIÓN MERCHANDISING ===== -->
+
+<!-- ===== FORMULARIO DE PEDIDO (NUEVO) ===== -->
+<div id="merch-form" role="dialog" aria-modal="true" aria-labelledby="merch-form-titulo" aria-hidden="true">
+  <div class="form-caja">
+    <button class="form-cerrar" type="button" aria-label="Cerrar">&times;</button>
+    <h3 id="merch-form-titulo">Pedir modelo <span class="form-modelo"></span></h3>
+    <form novalidate>
+      <input type="hidden" name="Modelo" value="">
+      <input type="hidden" name="_subject" value="Nuevo pedido de merch">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label for="pedido-nombre">Nombre y apellidos</label>
+      <input id="pedido-nombre" name="Nombre" type="text" required autocomplete="name">
+
+      <label for="pedido-contacto">Instagram o teléfono</label>
+      <input id="pedido-contacto" name="Contacto" type="text" required placeholder="@tuusuario o 6XX XXX XXX">
+
+      <label for="pedido-prenda">Prenda</label>
+      <select id="pedido-prenda" name="Prenda" required>
+        <option value="">Elige una opción</option>
+        <option>Camiseta normal</option>
+        <option>Camiseta oversize</option>
+        <option>Sudadera oversize</option>
+      </select>
+
+      <label for="pedido-talla">Talla</label>
+      <select id="pedido-talla" name="Talla" required>
+        <option value="">Elige una talla</option>
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+      </select>
+
+      <p class="form-nota">Se entrega y se paga en mano el día del evento.</p>
+      <p class="form-mensaje" role="status" aria-live="polite"></p>
+      <button type="submit" class="btn-merch form-enviar">Enviar pedido</button>
+    </form>
+    <div class="form-ok" hidden>
+      <p class="form-ok-titulo">Pedido enviado</p>
+      <p>Te contactaremos para confirmarlo. Recuerda que se entrega y se paga en mano el día del evento.</p>
+      <button type="button" class="btn-merch form-cerrar-ok">Cerrar</button>
+    </div>
+  </div>
+</div>
+<!-- ===== FIN FORMULARIO DE PEDIDO ===== -->
 
 <section data-bs-version="5.1" class="header18 cid-vpwwmcv4S9 mbr-fullscreen mbr-parallax-background" id="header18-1i">
 
@@ -670,8 +830,187 @@
   })();
 </script>
 <!-- ===== FIN SCRIPTS CARRUSEL DJs ===== -->
+
+<!-- ===== SCRIPTS MERCHANDISING (NUEVO) ===== -->
+<script>
+  (function () {
+    var seccion = document.getElementById('merch');
+    if (!seccion) return;
+    var viewport = seccion.querySelector('.merch-viewport');
+    var slides = seccion.querySelectorAll('.merch-slide');
+    var puntos = seccion.querySelector('.merch-puntos');
+
+    // Carrusel
+    function actual() { return Math.round(viewport.scrollLeft / viewport.clientWidth); }
+    function ir(i) {
+      var n = slides.length;
+      i = (i + n) % n;
+      viewport.scrollTo({ left: i * viewport.clientWidth, behavior: 'smooth' });
+    }
+    seccion.querySelector('.merch-flecha--prev').addEventListener('click', function () { ir(actual() - 1); });
+    seccion.querySelector('.merch-flecha--next').addEventListener('click', function () { ir(actual() + 1); });
+
+    slides.forEach(function (slide, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Ver ' + slide.querySelector('figcaption').textContent);
+      b.addEventListener('click', function () { ir(i); });
+      puntos.appendChild(b);
+    });
+    function marcarPunto() {
+      var i = actual();
+      puntos.querySelectorAll('button').forEach(function (b, j) { b.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    }
+    viewport.addEventListener('scroll', function () { window.requestAnimationFrame(marcarPunto); });
+    marcarPunto();
+
+    // Zoom
+    var zoom = document.getElementById('merch-zoom');
+    var zoomImg = zoom.querySelector('img');
+    var zoomArea = zoom.querySelector('.zoom-area');
+    var ultimoBoton = null;
+
+    function abrir(src, alt, boton) {
+      ultimoBoton = boton;
+      zoomImg.src = src;
+      zoomImg.alt = alt;
+      zoom.classList.remove('ampliado');
+      zoom.classList.add('abierto');
+      zoom.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      zoom.querySelector('.zoom-cerrar').focus();
+    }
+    function cerrar() {
+      zoom.classList.remove('abierto', 'ampliado');
+      zoom.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (ultimoBoton) ultimoBoton.focus();
+    }
+
+    seccion.querySelectorAll('[data-zoom]').forEach(function (b) {
+      b.addEventListener('click', function () { abrir(b.getAttribute('data-zoom'), b.querySelector('img').alt, b); });
+    });
+    zoom.querySelector('.zoom-cerrar').addEventListener('click', cerrar);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && zoom.classList.contains('abierto')) cerrar(); });
+
+    // Tocar la imagen: acercar en ese punto / alejar. Tocar fuera: cerrar.
+    zoomArea.addEventListener('click', function (e) {
+      if (e.target !== zoomImg) { if (!zoom.classList.contains('ampliado')) cerrar(); return; }
+      if (zoom.classList.contains('ampliado')) { zoom.classList.remove('ampliado'); return; }
+      var r = zoomImg.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width;
+      var py = (e.clientY - r.top) / r.height;
+      zoom.classList.add('ampliado');
+      zoomArea.scrollLeft = px * zoomArea.scrollWidth - zoomArea.clientWidth / 2;
+      zoomArea.scrollTop = py * zoomArea.scrollHeight - zoomArea.clientHeight / 2;
+    });
+
+    // Con ratón: arrastrar para moverse por la imagen ampliada
+    var arrastrando = false, movido = false, sx, sy, sl, st;
+    zoomArea.addEventListener('mousedown', function (e) {
+      if (!zoom.classList.contains('ampliado')) return;
+      arrastrando = true; movido = false;
+      sx = e.clientX; sy = e.clientY; sl = zoomArea.scrollLeft; st = zoomArea.scrollTop;
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!arrastrando) return;
+      if (Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) > 5) movido = true;
+      zoomArea.scrollLeft = sl - (e.clientX - sx);
+      zoomArea.scrollTop = st - (e.clientY - sy);
+    });
+    window.addEventListener('mouseup', function () { arrastrando = false; });
+    zoomArea.addEventListener('click', function (e) { if (movido) { e.stopImmediatePropagation(); movido = false; } }, true);
+  })();
+</script>
+<!-- ===== FIN SCRIPTS MERCHANDISING ===== -->
+
+<!-- ===== SCRIPTS FORMULARIO DE PEDIDO (NUEVO) ===== -->
+<script>
+  (function () {
+    // Correo donde llegan los pedidos (ver instrucciones de activación)
+    var DESTINO = 'https://formsubmit.co/ajax/celtiqhard@gmail.com';
+
+    var modal = document.getElementById('merch-form');
+    if (!modal) return;
+    var form = modal.querySelector('form');
+    var ok = modal.querySelector('.form-ok');
+    var mensaje = modal.querySelector('.form-mensaje');
+    var enviar = modal.querySelector('.form-enviar');
+    var ultimoBoton = null;
+
+    function abrir(modelo, boton) {
+      ultimoBoton = boton;
+      form.reset();
+      form.hidden = false;
+      ok.hidden = true;
+      mensaje.textContent = '';
+      enviar.disabled = false;
+      enviar.textContent = 'Enviar pedido';
+      form.elements['Modelo'].value = modelo;
+      form.elements['_subject'].value = 'Nuevo pedido de merch: modelo ' + modelo;
+      modal.querySelector('.form-modelo').textContent = modelo;
+      modal.classList.add('abierto');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('pedido-nombre').focus();
+    }
+    function cerrar() {
+      modal.classList.remove('abierto');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (ultimoBoton) ultimoBoton.focus();
+    }
+
+    document.querySelectorAll('#merch .btn-pedir').forEach(function (b) {
+      b.addEventListener('click', function () { abrir(b.getAttribute('data-modelo'), b); });
+    });
+    modal.querySelector('.form-cerrar').addEventListener('click', cerrar);
+    modal.querySelector('.form-cerrar-ok').addEventListener('click', cerrar);
+    modal.addEventListener('click', function (e) { if (e.target === modal) cerrar(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('abierto')) cerrar(); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var faltan = [];
+      if (!form.elements['Nombre'].value.trim()) faltan.push('tu nombre');
+      if (!form.elements['Contacto'].value.trim()) faltan.push('tu Instagram o teléfono');
+      if (!form.elements['Prenda'].value) faltan.push('la prenda');
+      if (!form.elements['Talla'].value) faltan.push('la talla');
+      if (faltan.length) {
+        mensaje.textContent = 'Falta rellenar: ' + faltan.join(', ') + '.';
+        return;
+      }
+
+      var datos = {};
+      new FormData(form).forEach(function (valor, clave) { datos[clave] = valor; });
+
+      enviar.disabled = true;
+      enviar.textContent = 'Enviando...';
+      mensaje.textContent = '';
+
+      fetch(DESTINO, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(datos)
+      })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || String(res.j.success) !== 'true') throw new Error('envío fallido');
+          form.hidden = true;
+          ok.hidden = false;
+          modal.querySelector('.form-cerrar-ok').focus();
+        })
+        .catch(function () {
+          mensaje.textContent = 'No se ha podido enviar el pedido. Inténtalo de nuevo o escríbenos por Instagram.';
+          enviar.disabled = false;
+          enviar.textContent = 'Enviar pedido';
+        });
+    });
+  })();
+</script>
+<!-- ===== FIN SCRIPTS FORMULARIO DE PEDIDO ===== -->
 </body>
 
 <!-- Mirrored from celtiqhard.mobirisesite.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2026 05:30:34 GMT -->
 </html>
-
