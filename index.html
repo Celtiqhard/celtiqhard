@@ -163,7 +163,7 @@
 #merch .merch-viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border-radius:12px}
 #merch .merch-viewport::-webkit-scrollbar{display:none}
 #merch .merch-slide{flex:0 0 100%;scroll-snap-align:center;margin:0}
-#merch .merch-slide button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+#merch .merch-slide button[data-zoom]{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
 #merch .merch-slide img{display:block;width:100%;height:auto;border-radius:12px}
 #merch .merch-slide figcaption{margin-top:.9rem;font-weight:800;font-size:1.25rem}
 #merch .merch-flecha{position:absolute;top:40%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
@@ -194,8 +194,12 @@
 /* ===== FIN SECCIÓN MERCHANDISING ===== */
 
 /* ===== FORMULARIO DE PEDIDO (NUEVO) ===== */
-#merch .btn-pedir{margin-top:.75rem;background:#dc3545;color:#fff;border:0;border-radius:999px;padding:.7rem 1.75rem;font-weight:800;font-size:1rem;cursor:pointer;transition:transform .2s,box-shadow .2s}
-#merch .btn-pedir:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(220,53,69,.6)}
+#merch .merch-slide .btn-pedir{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;width:min(100%,340px);background:#dc3545;color:#fff;border:2px solid #ff4d5e;border-radius:999px;padding:1rem 2rem;font-family:inherit;font-weight:900;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;box-shadow:0 0 18px rgba(220,53,69,.55);transition:transform .2s,box-shadow .2s,background .2s;animation:pedirBrillo 2.4s ease-in-out infinite}
+#merch .btn-pedir svg{width:1.3em;height:1.3em;flex-shrink:0}
+@keyframes pedirBrillo{0%,100%{box-shadow:0 0 14px rgba(220,53,69,.45)}50%{box-shadow:0 0 30px rgba(220,53,69,.9)}}
+@media (prefers-reduced-motion:reduce){#merch .merch-slide .btn-pedir{animation:none}}
+#merch .merch-slide .btn-pedir:hover{transform:translateY(-3px) scale(1.03);background:#ff2e44;box-shadow:0 0 34px rgba(220,53,69,1);animation:none}
+#merch .merch-slide .btn-pedir:active{transform:scale(.97)}
 #merch .merch-dudas{opacity:.75}
 #merch .merch-dudas a{color:#fff;text-decoration:underline}
 #merch-form{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;font-family:'Inter Tight',sans-serif}
@@ -293,25 +297,25 @@
       <button class="merch-flecha merch-flecha--prev" type="button" aria-label="Modelo anterior">&#8249;</button>
       <div class="merch-viewport">
         <figure class="merch-slide">
-          <button type="button" data-zoom="merch/morada.jpeg" aria-label="Ampliar modelo Morada">
-            <img src="merch/morada.jpeg" alt="Camiseta Celtiq Hard modelo Morada, delante y detrás" loading="lazy">
-          </button>
-          <figcaption>Modelo Morada</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Morada">Pedir modelo Morada</button>
-        </figure>
-        <figure class="merch-slide">
           <button type="button" data-zoom="merch/gris.jpeg" aria-label="Ampliar modelo Gris">
             <img src="merch/gris.jpeg" alt="Camiseta Celtiq Hard modelo Gris, delante y detrás" loading="lazy">
           </button>
           <figcaption>Modelo Gris</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Gris">Pedir modelo Gris</button>
+          <button type="button" class="btn-pedir" data-modelo="Gris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Gris</button>
+        </figure>
+        <figure class="merch-slide">
+          <button type="button" data-zoom="merch/morada.jpeg" aria-label="Ampliar modelo Morada">
+            <img src="merch/morada.jpeg" alt="Camiseta Celtiq Hard modelo Morada, delante y detrás" loading="lazy">
+          </button>
+          <figcaption>Modelo Morada</figcaption>
+          <button type="button" class="btn-pedir" data-modelo="Morada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Morada</button>
         </figure>
         <figure class="merch-slide">
           <button type="button" data-zoom="merch/azul.jpeg" aria-label="Ampliar modelo Azul">
             <img src="merch/azul.jpeg" alt="Camiseta Celtiq Hard modelo Azul, delante y detrás" loading="lazy">
           </button>
           <figcaption>Modelo Azul</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Azul">Pedir modelo Azul</button>
+          <button type="button" class="btn-pedir" data-modelo="Azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Azul</button>
         </figure>
       </div>
       <button class="merch-flecha merch-flecha--next" type="button" aria-label="Modelo siguiente">&#8250;</button>
