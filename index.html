@@ -244,6 +244,19 @@
 #merch .cuenta-atras .cuenta-cajas span{font-size:clamp(1.3rem,5vw,1.9rem)}
 .cuenta-atras .cuenta-fin{font-size:1.3rem;font-weight:900;color:#dc3545;margin:0}
 /* ===== FIN CUENTAS ATRÁS ===== */
+
+/* ===== AÑADIR AL CALENDARIO (NUEVO) ===== */
+#entradas .evento-fecha,#entradas .cuenta-atras{cursor:pointer}
+#entradas .calendario{position:relative;display:flex;justify-content:center;margin:-.75rem 0 2rem}
+#entradas .btn-calendario{display:inline-flex;align-items:center;gap:.5rem;background:none;border:1px solid #555;color:#fff;border-radius:999px;padding:.6rem 1.2rem;font-family:inherit;font-weight:700;font-size:.95rem;cursor:pointer;transition:border-color .2s,background .2s}
+#entradas .btn-calendario:hover,#entradas .btn-calendario[aria-expanded="true"]{border-color:#dc3545;background:#1a0a0c}
+#entradas .btn-calendario svg{width:1.2em;height:1.2em}
+#entradas .calendario-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);z-index:10;background:#111;border:1px solid #333;border-radius:12px;padding:.4rem;min-width:250px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+#entradas .calendario-menu[hidden]{display:none}
+#entradas .calendario-menu a{display:block;padding:.8rem 1rem;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;text-align:left}
+#entradas .calendario-menu a:hover{background:#dc3545;color:#fff}
+#entradas .btn-calendario:focus-visible,#entradas .calendario-menu a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+/* ===== FIN AÑADIR AL CALENDARIO ===== */
 </style>
 </head>
 <body>
@@ -316,6 +329,16 @@
         <div><span class="c-horas">--</span><small>horas</small></div>
         <div><span class="c-min">--</span><small>min</small></div>
         <div><span class="c-seg">--</span><small>seg</small></div>
+      </div>
+    </div>
+    <div class="calendario">
+      <button type="button" class="btn-calendario" aria-expanded="false" aria-controls="calendario-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M12 14v4M10 16h4"/></svg>
+        Añadir al calendario
+      </button>
+      <div id="calendario-menu" class="calendario-menu" hidden>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=CELTIQ%20HARD%20en%20Discoteca%20Maxims&amp;dates=20261114T230000Z/20261115T050000Z&amp;location=Discoteca%20Maxims%2C%20O%20Carballi%C3%B1o&amp;details=Hardstyle%2C%20Rawstyle%20y%20Uptempo.%20Entradas%3A%20https%3A//www.fourvenues.com/maxims-discoteca/JDIC" target="_blank" rel="noopener">Google Calendar (Android)</a>
+        <a href="evento.ics">iPhone, Outlook y otros</a>
       </div>
     </div>
     <a class="btn-entradas" href="https://www.fourvenues.com/maxims-discoteca/JDIC" target="_blank" rel="noopener">Comprar entradas</a>
@@ -1121,6 +1144,36 @@
   })();
 </script>
 <!-- ===== FIN CIERRE AUTOMÁTICO DE PEDIDOS ===== -->
+
+<!-- ===== SCRIPTS AÑADIR AL CALENDARIO (NUEVO) ===== -->
+<script>
+  (function () {
+    var boton = document.querySelector('#entradas .btn-calendario');
+    var menu = document.getElementById('calendario-menu');
+    if (!boton || !menu) return;
+
+    function abrir() { menu.hidden = false; boton.setAttribute('aria-expanded', 'true'); }
+    function cerrar() { menu.hidden = true; boton.setAttribute('aria-expanded', 'false'); }
+    function alternar(e) { e.stopPropagation(); menu.hidden ? abrir() : cerrar(); }
+
+    boton.addEventListener('click', alternar);
+    // Pulsar en la fecha o en la cuenta atrás también abre el menú
+    document.querySelectorAll('#entradas .evento-fecha, #entradas .cuenta-atras').forEach(function (el) {
+      el.addEventListener('click', alternar);
+    });
+    menu.addEventListener('click', function (e) { e.stopPropagation(); if (e.target.closest('a')) setTimeout(cerrar, 100); });
+    document.addEventListener('click', cerrar);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { cerrar(); boton.focus(); } });
+
+    // Registro en Google Analytics
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (typeof gtag === 'function') gtag('event', 'anadir_calendario', { tipo: a.textContent.trim(), transport_type: 'beacon' });
+      });
+    });
+  })();
+</script>
+<!-- ===== FIN SCRIPTS AÑADIR AL CALENDARIO ===== -->
 
 <!-- ===== SEGUIMIENTO BOTÓN ENTRADAS (NUEVO) ===== -->
 <script>
