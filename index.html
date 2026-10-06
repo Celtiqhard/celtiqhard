@@ -217,6 +217,25 @@
 #merch-form .form-ok-titulo{font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
 #merch-form button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 /* ===== FIN FORMULARIO DE PEDIDO ===== */
+
+/* ===== CIERRE DE PEDIDOS (NUEVO) ===== */
+#merch.pedidos-cerrados .merch-slide .btn-pedir{background:#333;border-color:#444;color:#aaa;box-shadow:none;animation:none;cursor:not-allowed;transform:none}
+#merch .merch-cerrado{display:inline-block;margin:1.5rem auto 0;padding:.9rem 1.5rem;border:2px solid #dc3545;border-radius:12px;font-weight:800;font-size:1.1rem}
+/* ===== FIN CIERRE DE PEDIDOS ===== */
+
+/* ===== CUENTAS ATRÁS (NUEVO) ===== */
+.cuenta-atras{margin:0 auto 2rem;font-family:'Inter Tight',sans-serif;color:#fff}
+.cuenta-atras .cuenta-titulo{font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;opacity:.7;margin:0 0 .75rem;font-weight:700}
+.cuenta-atras .cuenta-cajas{display:flex;justify-content:center;gap:.6rem}
+.cuenta-atras .cuenta-cajas div{min-width:4.2rem;padding:.7rem .5rem;border:1px solid #333;border-radius:12px;background:#0d0d0d}
+.cuenta-atras .cuenta-cajas span{display:block;font-size:clamp(1.6rem,6vw,2.5rem);font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.cuenta-atras .cuenta-cajas small{display:block;margin-top:.35rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;opacity:.65}
+#entradas .cuenta-atras .cuenta-cajas span{color:#dc3545}
+#merch .cuenta-atras{margin-bottom:1.5rem}
+#merch .cuenta-atras .cuenta-cajas div{min-width:3.6rem;padding:.55rem .4rem}
+#merch .cuenta-atras .cuenta-cajas span{font-size:clamp(1.3rem,5vw,1.9rem)}
+.cuenta-atras .cuenta-fin{font-size:1.3rem;font-weight:900;color:#dc3545;margin:0}
+/* ===== FIN CUENTAS ATRÁS ===== */
 </style>
 </head>
 <body>
@@ -282,6 +301,15 @@
     <p class="evento-tag">Próximo evento</p>
     <h2 class="evento-fecha">14 NOVIEMBRE</h2>
     <p class="evento-lugar">Discoteca Maxims, O Carballiño</p>
+    <div class="cuenta-atras" data-objetivo="2026-11-15T00:00:00+01:00" data-fin="¡Ya ha empezado! Nos vemos en la pista." role="timer" aria-label="Cuenta atrás para el evento">
+      <p class="cuenta-titulo">Faltan</p>
+      <div class="cuenta-cajas">
+        <div><span class="c-dias">--</span><small>días</small></div>
+        <div><span class="c-horas">--</span><small>horas</small></div>
+        <div><span class="c-min">--</span><small>min</small></div>
+        <div><span class="c-seg">--</span><small>seg</small></div>
+      </div>
+    </div>
     <a class="btn-entradas" href="https://www.fourvenues.com/maxims-discoteca/JDIC" target="_blank" rel="noopener">Comprar entradas</a>
   </div>
 </section>
@@ -328,6 +356,15 @@
       <li>Sudadera oversize <strong>35 €</strong></li>
     </ul>
     <p class="merch-pedido">Cualquiera de los tres diseños está disponible en las tres prendas. Pulsa "Pedir" debajo del modelo que quieras y rellena el formulario. Se entrega y se paga en mano el día del evento. Fecha límite 19/10/26</p>
+    <div class="cuenta-atras" data-objetivo="2026-10-20T00:00:00+02:00" data-fin="" role="timer" aria-label="Cuenta atrás para el cierre de pedidos">
+      <p class="cuenta-titulo">Los pedidos se cierran en</p>
+      <div class="cuenta-cajas">
+        <div><span class="c-dias">--</span><small>días</small></div>
+        <div><span class="c-horas">--</span><small>horas</small></div>
+        <div><span class="c-min">--</span><small>min</small></div>
+        <div><span class="c-seg">--</span><small>seg</small></div>
+      </div>
+    </div>
     <p class="merch-dudas">¿Dudas? <a href="https://ig.me/m/celtiqhard" target="_blank" rel="noopener">Escríbenos por Instagram</a></p>
   </div>
 </section>
@@ -1015,6 +1052,85 @@
   })();
 </script>
 <!-- ===== FIN SCRIPTS FORMULARIO DE PEDIDO ===== -->
+<!-- ===== SCRIPTS CUENTAS ATRÁS (NUEVO) ===== -->
+<script>
+  (function () {
+    var relojes = document.querySelectorAll('.cuenta-atras');
+    if (!relojes.length) return;
+    function dos(n) { return n < 10 ? '0' + n : String(n); }
+
+    function actualizar() {
+      var ahora = Date.now();
+      relojes.forEach(function (r) {
+        if (r.dataset.terminado) return;
+        var falta = new Date(r.dataset.objetivo).getTime() - ahora;
+        if (falta <= 0) {
+          r.dataset.terminado = '1';
+          if (r.dataset.fin) {
+            r.innerHTML = '<p class="cuenta-fin">' + r.dataset.fin + '</p>';
+          } else {
+            r.remove();
+          }
+          return;
+        }
+        var seg = Math.floor(falta / 1000);
+        r.querySelector('.c-dias').textContent = Math.floor(seg / 86400);
+        r.querySelector('.c-horas').textContent = dos(Math.floor(seg % 86400 / 3600));
+        r.querySelector('.c-min').textContent = dos(Math.floor(seg % 3600 / 60));
+        r.querySelector('.c-seg').textContent = dos(seg % 60);
+      });
+    }
+    actualizar();
+    setInterval(actualizar, 1000);
+  })();
+</script>
+<!-- ===== FIN SCRIPTS CUENTAS ATRÁS ===== -->
+
+<!-- ===== CIERRE AUTOMÁTICO DE PEDIDOS (NUEVO) ===== -->
+<script>
+  (function () {
+    // Los pedidos se cierran al terminar el 19/10/26 (hora de España)
+    var CIERRE = new Date('2026-10-20T00:00:00+02:00');
+    if (new Date() < CIERRE) return;
+
+    var seccion = document.getElementById('merch');
+    if (!seccion) return;
+    seccion.classList.add('pedidos-cerrados');
+
+    // Desactivar los botones de pedir (también evita que se abra el formulario)
+    seccion.querySelectorAll('.btn-pedir').forEach(function (b) {
+      var nuevo = b.cloneNode(false);
+      nuevo.disabled = true;
+      nuevo.textContent = 'Pedidos cerrados';
+      b.parentNode.replaceChild(nuevo, b);
+    });
+
+    // Cambiar el texto de cómo pedir por el aviso de cierre
+    var texto = seccion.querySelector('.merch-pedido');
+    if (texto) {
+      texto.outerHTML = '<p class="merch-cerrado" role="status">El plazo de pedidos terminó el 19/10/26. ¡Gracias a todos los que habéis pedido!</p>';
+    }
+  })();
+</script>
+<!-- ===== FIN CIERRE AUTOMÁTICO DE PEDIDOS ===== -->
+
+<!-- ===== SEGUIMIENTO BOTÓN ENTRADAS (NUEVO) ===== -->
+<script>
+  (function () {
+    var boton = document.querySelector('#entradas .btn-entradas');
+    if (!boton) return;
+    boton.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'clic_comprar_entradas', {
+          evento: 'Maxims 14 noviembre',
+          link_url: boton.href,
+          transport_type: 'beacon'
+        });
+      }
+    });
+  })();
+</script>
+<!-- ===== FIN SEGUIMIENTO BOTÓN ENTRADAS ===== -->
 </body>
 
 <!-- Mirrored from celtiqhard.mobirisesite.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2026 05:30:34 GMT -->
