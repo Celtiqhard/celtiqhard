@@ -257,22 +257,36 @@
 #entradas .calendario-menu a:hover{background:#dc3545;color:#fff}
 #entradas .btn-calendario:focus-visible,#entradas .calendario-menu a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 /* ===== FIN AÑADIR AL CALENDARIO ===== */
+
+/* ===== LEGAL Y COOKIES (NUEVO) ===== */
+#merch-form .form-check{display:flex;gap:.6rem;align-items:flex-start;font-weight:500;font-size:.95rem;margin:1rem 0 .5rem;cursor:pointer}
+#merch-form .form-check input{width:1.2rem;height:1.2rem;margin-top:.15rem;flex-shrink:0;accent-color:#dc3545}
+#merch-form .form-info{font-size:.78rem;line-height:1.45;opacity:.6;margin:0 0 .75rem}
+#merch-form a{color:#fff;text-decoration:underline}
+#pie-legal{background:#000;color:#aaa;text-align:center;padding:2rem 1rem calc(2rem + env(safe-area-inset-bottom,0px));font-family:'Inter Tight',sans-serif;font-size:.9rem;border-top:1px solid #222}
+#pie-legal p{margin:0 0 .75rem}
+#pie-legal nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.25rem}
+#pie-legal a,#pie-legal button{color:#ddd;text-decoration:underline;background:none;border:0;padding:0;font:inherit;cursor:pointer}
+#pie-legal a:hover,#pie-legal button:hover{color:#fff}
+#banner-cookies{position:fixed;left:1rem;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:3000;max-width:640px;margin:0 auto;background:#111;color:#fff;border:1px solid #333;border-radius:14px;padding:1.25rem;box-shadow:0 10px 40px rgba(0,0,0,.7);font-family:'Inter Tight',sans-serif}
+#banner-cookies[hidden]{display:none}
+#banner-cookies p{margin:0 0 1rem;font-size:.95rem;line-height:1.5}
+#banner-cookies a{color:#fff;text-decoration:underline}
+#banner-cookies .banner-botones{display:flex;gap:.75rem}
+#banner-cookies button{flex:1;padding:.8rem 1rem;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;border:2px solid #dc3545}
+#banner-cookies .cookies-aceptar{background:#dc3545;color:#fff}
+#banner-cookies .cookies-rechazar{background:transparent;color:#fff}
+#banner-cookies button:focus-visible,#pie-legal a:focus-visible,#pie-legal button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.mapa-bloqueado{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;min-height:300px;background:#111;color:#ccc;border-radius:12px;padding:1rem;text-align:center}
+.mapa-bloqueado p{margin:0}
+.mapa-bloqueado button{background:#dc3545;color:#fff;border:0;border-radius:999px;padding:.7rem 1.5rem;font-weight:800;cursor:pointer}
+/* ===== FIN LEGAL Y COOKIES ===== */
 </style>
 </head>
 <body>
 
 
-<!-- Analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JZ53M6K2ZF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JZ53M6K2ZF');
-</script>
-<!-- /Analytics -->
+<!-- Analytics: se carga solo si se aceptan las cookies (ver BANNER DE COOKIES al final) -->
 
 
 
@@ -444,6 +458,8 @@
       </select>
 
       <p class="form-nota">Se entrega y se paga en mano el día del evento.</p>
+      <label class="form-check"><input type="checkbox" name="Acepta privacidad" value="Sí" id="pedido-privacidad"> He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a></label>
+      <p class="form-info">Responsable: Asociación Galicia Hardstyle. Finalidad: gestionar tu pedido y contactarte para la entrega. Puedes ejercer tus derechos escribiendo a celtiqhard@gmail.com. Más información en la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p>
       <p class="form-mensaje" role="status" aria-live="polite"></p>
       <button type="submit" class="btn-merch form-enviar">Enviar pedido</button>
     </form>
@@ -832,13 +848,108 @@
                 </div>
             </div>
             <div class="map-wrapper col-12 col-md-7">
-                <div class="google-map"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQ55g-IgRRgXrd803PTWDTb7kd6aAitNQ&amp;q=Galicia" allowfullscreen=""></iframe></div>
+                <div class="google-map"><iframe frameborder="0" style="border:0" data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBQ55g-IgRRgXrd803PTWDTb7kd6aAitNQ&amp;q=Galicia" allowfullscreen="" title="Mapa de Galicia" hidden></iframe><div class="mapa-bloqueado"><p>El mapa es de Google y usa cookies.</p><button type="button" class="btn-cargar-mapa">Ver mapa</button></div></div>
             </div>
         </div>
     </div>
 
 
 </section>
+
+<!-- ===== PIE LEGAL (NUEVO) ===== -->
+<footer id="pie-legal">
+  <p>&copy; 2026 Asociación Galicia Hardstyle · CELTIQ HARD</p>
+  <nav aria-label="Información legal">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+    <button type="button" class="abrir-cookies">Configurar cookies</button>
+  </nav>
+</footer>
+
+<div id="banner-cookies" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies propias y de Google para medir las visitas (Google Analytics) y mostrar el mapa. Solo se activan si las aceptas. <a href="cookies.html">Más información</a></p>
+  <div class="banner-botones">
+    <button type="button" class="cookies-rechazar">Rechazar</button>
+    <button type="button" class="cookies-aceptar">Aceptar</button>
+  </div>
+</div>
+<!-- ===== FIN PIE LEGAL ===== -->
+
+<!-- ===== BANNER DE COOKIES (NUEVO) ===== -->
+<script>
+  (function () {
+    var CLAVE = 'celtiq-cookies';
+    var DURACION = 365 * 24 * 60 * 60 * 1000; // se vuelve a preguntar al año
+    var banner = document.getElementById('banner-cookies');
+
+    function leer() {
+      try {
+        var d = JSON.parse(localStorage.getItem(CLAVE));
+        if (d && Date.now() - d.fecha < DURACION) return d.valor;
+      } catch (e) {}
+      return null;
+    }
+    function guardar(valor) {
+      try { localStorage.setItem(CLAVE, JSON.stringify({ valor: valor, fecha: Date.now() })); } catch (e) {}
+    }
+
+    var analyticsCargado = false;
+    function cargarAnalytics() {
+      if (analyticsCargado) return;
+      analyticsCargado = true;
+      var sc = document.createElement('script');
+      sc.async = true;
+      sc.src = 'https://www.googletagmanager.com/gtag/js?id=G-JZ53M6K2ZF';
+      document.head.appendChild(sc);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-JZ53M6K2ZF');
+    }
+    function cargarMapa() {
+      document.querySelectorAll('.google-map iframe[data-src]').forEach(function (f) {
+        f.src = f.getAttribute('data-src');
+        f.removeAttribute('data-src');
+        f.hidden = false;
+        var aviso = f.parentNode.querySelector('.mapa-bloqueado');
+        if (aviso) aviso.remove();
+      });
+    }
+    function borrarCookiesGoogle() {
+      document.cookie.split(';').forEach(function (c) {
+        var n = c.split('=')[0].trim();
+        if (/^_ga/.test(n)) {
+          var dominios = [location.hostname, '.' + location.hostname.replace(/^www\./, '')];
+          dominios.forEach(function (d) { document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d; });
+          document.cookie = n + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        }
+      });
+    }
+
+    function aplicar(valor) {
+      if (valor === 'aceptadas') { cargarAnalytics(); cargarMapa(); }
+    }
+
+    banner.querySelector('.cookies-aceptar').addEventListener('click', function () {
+      guardar('aceptadas'); banner.hidden = true; aplicar('aceptadas');
+    });
+    banner.querySelector('.cookies-rechazar').addEventListener('click', function () {
+      var antes = leer();
+      guardar('rechazadas'); banner.hidden = true; borrarCookiesGoogle();
+      if (antes === 'aceptadas') location.reload(); // para dejar de medir en esta visita
+    });
+    document.querySelectorAll('.abrir-cookies').forEach(function (b) {
+      b.addEventListener('click', function () { banner.hidden = false; banner.querySelector('.cookies-aceptar').focus(); });
+    });
+    // El botón "Ver mapa" carga solo el mapa (sin activar Analytics)
+    document.querySelectorAll('.btn-cargar-mapa').forEach(function (b) { b.addEventListener('click', cargarMapa); });
+
+    var estado = leer();
+    if (estado) aplicar(estado); else banner.hidden = false;
+  })();
+</script>
+<!-- ===== FIN BANNER DE COOKIES ===== -->
 
 <!-- ===== SCRIPTS MENÚ MÓVIL (NUEVO) ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -1050,6 +1161,7 @@
       if (!form.elements['Contacto'].value.trim()) faltan.push('tu Instagram o teléfono');
       if (!form.elements['Prenda'].value) faltan.push('la prenda');
       if (!form.elements['Talla'].value) faltan.push('la talla');
+      if (!document.getElementById('pedido-privacidad').checked) faltan.push('aceptar la política de privacidad');
       if (faltan.length) {
         mensaje.textContent = 'Falta rellenar: ' + faltan.join(', ') + '.';
         return;
