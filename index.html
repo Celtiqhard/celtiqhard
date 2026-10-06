@@ -156,7 +156,10 @@
 /* Todas las fotos de DJs con el mismo tamaño */
 #features017-1k .embla__slide .item-img img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:center}
 #features017-1k .embla__slide{flex:0 0 auto!important;width:300px!important;max-width:none!important;min-width:0!important}
-#features017-1k .embla__slide .item-img,#features017-1k .embla__slide .item-wrapper{width:100%}
+#features017-1k .embla__slide .item-img,#features017-1k .embla__slide .item-img .item-wrapper{width:100%!important;height:auto!important;min-height:0!important;padding:0!important;position:relative!important;overflow:hidden}
+#features017-1k .embla__slide .item-img img{position:static!important;width:100%!important;height:auto!important;max-height:none!important}
+#features017-1k .embla__slide .item-content,#features017-1k .embla__slide .item-footer{position:relative;z-index:2}
+@media (min-width:768px){#features017-1k .embla__slide .item-img img{aspect-ratio:3/4}}
 @media (max-width:767px){#features017-1k .embla__slide{width:70vw!important;max-width:320px!important}}
 /* ===== FIN CARRUSEL DJs ===== */
 
