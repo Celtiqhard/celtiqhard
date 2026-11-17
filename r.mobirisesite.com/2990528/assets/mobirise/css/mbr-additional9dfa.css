@@ -1349,7 +1349,7 @@ a {
 }
 .cid-vpwwmcv4S9 {
   display: flex;
-  background-image: url("https://r.mobirisesite.com/2990528/assets/images/gemini-generated-image-mkhsk5mkhsk5mkhs-1365x768.webp");
+  background-image: url("/img/fondo-portada.jpg");
 }
 .cid-vpwwmcv4S9 .mbr-overlay {
   background-color: #000000;
@@ -1411,7 +1411,7 @@ a {
 .cid-tJS6uM4N87 {
   padding-top: 12rem;
   padding-bottom: 12rem;
-  background-image: url("https://r.mobirisesite.com/2990528/assets/images/3.1-1-2000x1333.webp");
+  background-image: url("/img/fondo-quienes-somos.jpg");
 }
 .cid-tJS6uM4N87 .mbr-fallback-image.disabled {
   display: none;
@@ -1504,7 +1504,7 @@ a {
   color: #ffffff;
 }
 .cid-vpwR8heJGo {
-  background-image: url("https://r.mobirisesite.com/2990528/assets/images/6.1-1-1168x1752.webp");
+  background-image: url("/img/fondo-salas.jpg");
 }
 .cid-vpwR8heJGo .mbr-fallback-image.disabled {
   display: none;
@@ -1816,3 +1816,6 @@ a {
 .cid-tLdYHD757A .item-wrap {
   text-align: center;
 }
+
+/* Fondo negro mientras no haya foto, y la foto siempre cubriendo la sección */
+.cid-vpwwmcv4S9,.cid-tJS6uM4N87,.cid-vpwR8heJGo{background-color:#000;background-size:cover;background-position:center}
