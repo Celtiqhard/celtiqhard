@@ -4,18 +4,18 @@ PRODID:-//CELTIQ HARD//Eventos//ES
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:celtiqhard-maxims-20261115@celtiqhard.com
-DTSTAMP:20261006T000000Z
-DTSTART:20261114T225900Z
-DTEND:20261115T050000Z
-SUMMARY:CELTIQ HARD en Discoteca Maxims
-LOCATION:Discoteca Maxims\, O Carballiño
-DESCRIPTION:Hardstyle\, Rawstyle y Uptempo. Entradas: https://www.fourvenues.com/maxims-discoteca/JDIC
+UID:celtiqhard-20261212@celtiqhard.com
+DTSTAMP:20261117T000000Z
+DTSTART:20261212T225900Z
+DTEND:20261213T050000Z
+SUMMARY:CELTIQ HARD — Próximo evento
+LOCATION:Lugar por desvelar
+DESCRIPTION:Hardstyle\, Rawstyle y Uptempo. El lugar se anunciará en https://www.instagram.com/celtiqhard/
 URL:https://celtiqhard.com/
 BEGIN:VALARM
 TRIGGER:-P1D
 ACTION:DISPLAY
-DESCRIPTION:Mañana es CELTIQ HARD en Maxims
+DESCRIPTION:Mañana es CELTIQ HARD
 END:VALARM
 END:VEVENT
 END:VCALENDAR

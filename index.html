@@ -147,6 +147,18 @@
 #entradas .btn-entradas:focus-visible{outline:3px solid #fff;outline-offset:4px}
 /* ===== FIN SECCIÓN ENTRADAS ===== */
 
+/* ===== LUGAR SECRETO (NUEVO) ===== */
+#entradas .evento-secreto{margin:0 auto 2rem;max-width:30rem}
+#entradas .secreto-fila{display:flex;justify-content:center;align-items:center;gap:.75rem;margin:0 0 .5rem;font-size:1.2rem}
+#entradas .secreto-etiqueta{font-weight:700;opacity:.85;min-width:4.5rem;text-align:right}
+#entradas .secreto-tapado{position:relative;display:inline-block;color:transparent;background:#1a1a1a;border:1px solid #dc3545;border-radius:4px;padding:0 .4rem;letter-spacing:.05em;overflow:hidden;user-select:none}
+#entradas .secreto-tapado::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(220,53,69,.45) 50%,transparent 100%);transform:translateX(-100%);animation:secretoBrillo 2.8s ease-in-out infinite}
+@keyframes secretoBrillo{to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){#entradas .secreto-tapado::after{animation:none;display:none}}
+#entradas .secreto-texto{margin:.9rem 0 0;opacity:.75;font-size:1rem}
+#entradas .entradas-pronto{margin:1rem auto 0;max-width:26rem;font-size:.95rem;opacity:.7}
+/* ===== FIN LUGAR SECRETO ===== */
+
 /* ===== CARRUSEL DJs (NUEVO) ===== */
 #features017-1k .embla__viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 #features017-1k .embla__viewport::-webkit-scrollbar{display:none}
@@ -206,35 +218,9 @@
 @media (min-width:768px){#merch-zoom.ampliado img{width:180%}}
 /* ===== FIN SECCIÓN MERCHANDISING ===== */
 
-/* ===== FORMULARIO DE PEDIDO (NUEVO) ===== */
-#merch .merch-slide .btn-pedir{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;width:min(100%,340px);background:#dc3545;color:#fff;border:2px solid #ff4d5e;border-radius:999px;padding:1rem 2rem;font-family:inherit;font-weight:900;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;box-shadow:0 0 18px rgba(220,53,69,.55);transition:transform .2s,box-shadow .2s,background .2s;animation:pedirBrillo 2.4s ease-in-out infinite}
-#merch .btn-pedir svg{width:1.3em;height:1.3em;flex-shrink:0}
-@keyframes pedirBrillo{0%,100%{box-shadow:0 0 14px rgba(220,53,69,.45)}50%{box-shadow:0 0 30px rgba(220,53,69,.9)}}
-@media (prefers-reduced-motion:reduce){#merch .merch-slide .btn-pedir{animation:none}}
-#merch .merch-slide .btn-pedir:hover{transform:translateY(-3px) scale(1.03);background:#ff2e44;box-shadow:0 0 34px rgba(220,53,69,1);animation:none}
-#merch .merch-slide .btn-pedir:active{transform:scale(.97)}
-#merch .merch-dudas{opacity:.75}
-#merch .merch-dudas a{color:#fff;text-decoration:underline}
-#merch-form{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;font-family:'Inter Tight',sans-serif}
-#merch-form.abierto{display:flex}
-#merch-form .form-caja{position:relative;background:#111;color:#fff;border:1px solid #333;border-radius:16px;width:100%;max-width:440px;max-height:calc(100% - 2rem);overflow-y:auto;padding:2rem 1.5rem 1.5rem;text-align:left}
-#merch-form h3{font-size:1.5rem;font-weight:900;margin:0 2.5rem 1.25rem 0;color:#fff}
-#merch-form label{display:block;font-weight:600;font-size:.95rem;margin:1rem 0 .35rem}
-#merch-form input[type=text],#merch-form select{width:100%;background:#000;color:#fff;border:1px solid #555;border-radius:8px;padding:.75rem;font-size:16px;font-family:inherit}
-#merch-form input:focus,#merch-form select:focus{outline:none;border-color:#dc3545;box-shadow:0 0 0 2px rgba(220,53,69,.4)}
-#merch-form .form-nota{font-size:.9rem;opacity:.7;margin:1.25rem 0 .5rem}
-#merch-form .form-mensaje{color:#ff6b78;font-size:.95rem;min-height:1.2em;margin:0 0 .75rem}
-#merch-form .btn-merch{display:block;width:100%;border:0;background:#dc3545;color:#fff;font-weight:800;font-size:1.05rem;padding:.9rem;border-radius:999px;cursor:pointer}
-#merch-form .btn-merch:disabled{opacity:.6;cursor:wait}
-#merch-form .form-cerrar{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#333;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
-#merch-form .form-ok-titulo{font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
-#merch-form button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-/* ===== FIN FORMULARIO DE PEDIDO ===== */
 
-/* ===== CIERRE DE PEDIDOS (NUEVO) ===== */
-#merch.pedidos-cerrados .merch-slide .btn-pedir{background:#333;border-color:#444;color:#aaa;box-shadow:none;animation:none;cursor:not-allowed;transform:none}
-#merch .merch-cerrado{display:inline-block;margin:1.5rem auto 0;padding:.9rem 1.5rem;border:2px solid #dc3545;border-radius:12px;font-weight:800;font-size:1.1rem}
-/* ===== FIN CIERRE DE PEDIDOS ===== */
+
+
 
 /* ===== CUENTAS ATRÁS (NUEVO) ===== */
 .cuenta-atras{margin:0 auto 2rem;font-family:'Inter Tight',sans-serif;color:#fff}
@@ -339,9 +325,13 @@
 <section id="entradas">
   <div class="container">
     <p class="evento-tag">Próximo evento</p>
-    <h2 class="evento-fecha">14 NOVIEMBRE</h2>
-    <p class="evento-lugar">Discoteca Maxims, O Carballiño</p>
-    <div class="cuenta-atras" data-objetivo="2026-11-14T23:59:00+01:00" data-fin="¡Ya ha empezado! Nos vemos en la pista." role="timer" aria-label="Cuenta atrás para el evento">
+    <h2 class="evento-fecha">12 DICIEMBRE</h2>
+    <div class="evento-secreto">
+      <p class="secreto-fila"><span class="secreto-etiqueta">Sala</span><span class="secreto-tapado" aria-label="Por desvelar">████████</span></p>
+      <p class="secreto-fila"><span class="secreto-etiqueta">Ciudad</span><span class="secreto-tapado" aria-label="Por desvelar">██████</span></p>
+      <p class="secreto-texto">El lugar se desvela muy pronto. ¿Te atreves a adivinarlo?</p>
+    </div>
+    <div class="cuenta-atras" data-objetivo="2026-12-12T23:59:00+01:00" data-fin="¡Ya ha empezado! Nos vemos en la pista." role="timer" aria-label="Cuenta atrás para el evento">
       <p class="cuenta-titulo">Faltan</p>
       <div class="cuenta-cajas">
         <div><span class="c-dias">--</span><small>días</small></div>
@@ -356,11 +346,12 @@
         Añadir al calendario
       </button>
       <div id="calendario-menu" class="calendario-menu" hidden>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=CELTIQ%20HARD%20en%20Discoteca%20Maxims&amp;dates=20261114T225900Z/20261115T050000Z&amp;location=Discoteca%20Maxims%2C%20O%20Carballi%C3%B1o&amp;details=Hardstyle%2C%20Rawstyle%20y%20Uptempo.%20Entradas%3A%20https%3A//www.fourvenues.com/maxims-discoteca/JDIC" target="_blank" rel="noopener">Google Calendar (Android)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=CELTIQ%20HARD%20%E2%80%94%20Pr%C3%B3ximo%20evento&amp;dates=20261212T225900Z/20261213T050000Z&amp;location=Lugar%20por%20desvelar&amp;details=Hardstyle%2C%20Rawstyle%20y%20Uptempo.%20El%20lugar%20se%20anunciar%C3%A1%20en%20https%3A//www.instagram.com/celtiqhard/" target="_blank" rel="noopener">Google Calendar (Android)</a>
         <a href="evento.ics">iPhone, Outlook y otros</a>
       </div>
     </div>
-    <a class="btn-entradas" href="https://www.fourvenues.com/maxims-discoteca/JDIC" target="_blank" rel="noopener">Comprar entradas</a>
+    <a class="btn-entradas" href="https://www.instagram.com/celtiqhard/" target="_blank" rel="noopener">Entérate el primero</a>
+    <p class="entradas-pronto">Entradas a la venta muy pronto. Síguenos en Instagram para no perderte el anuncio.</p>
   </div>
 </section>
 <!-- ===== FIN SECCIÓN ENTRADAS ===== -->
@@ -369,7 +360,7 @@
 <section id="merch">
   <div class="container">
     <h2>Merchandising</h2>
-    <p class="merch-intro">Tres diseños oficiales de Celtiq Hard. Pulsa en la foto para verla en grande.</p>
+    <p class="merch-intro">Tres diseños oficiales de Celtiq Hard, disponibles en camiseta y sudadera. Pulsa en la foto para verla en grande.</p>
 
     <div class="merch-carrusel">
       <button class="merch-flecha merch-flecha--prev" type="button" aria-label="Modelo anterior">&#8249;</button>
@@ -379,21 +370,18 @@
             <img src="merch/gris.jpeg" alt="Camiseta Celtiq Hard modelo Gris, delante y detrás" loading="lazy">
           </button>
           <figcaption>Modelo Gris</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Gris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Gris</button>
         </figure>
         <figure class="merch-slide">
           <button type="button" data-zoom="merch/morada.jpeg" aria-label="Ampliar modelo Morada">
             <img src="merch/morada.jpeg" alt="Camiseta Celtiq Hard modelo Morada, delante y detrás" loading="lazy">
           </button>
           <figcaption>Modelo Morada</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Morada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Morada</button>
         </figure>
         <figure class="merch-slide">
           <button type="button" data-zoom="merch/azul.jpeg" aria-label="Ampliar modelo Azul">
             <img src="merch/azul.jpeg" alt="Camiseta Celtiq Hard modelo Azul, delante y detrás" loading="lazy">
           </button>
           <figcaption>Modelo Azul</figcaption>
-          <button type="button" class="btn-pedir" data-modelo="Azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Pedir modelo Azul</button>
         </figure>
       </div>
       <button class="merch-flecha merch-flecha--next" type="button" aria-label="Modelo siguiente">&#8250;</button>
@@ -402,20 +390,8 @@
 
     <ul class="merch-prendas" aria-label="Prendas disponibles">
       <li>Camiseta normal <strong>15 €</strong></li>
-      <li>Camiseta oversize <strong>20 €</strong></li>
       <li>Sudadera oversize <strong>35 €</strong></li>
     </ul>
-    <p class="merch-pedido">Cualquiera de los tres diseños está disponible en las tres prendas. Pulsa "Pedir" debajo del modelo que quieras y rellena el formulario. Se entrega y se paga en mano el día del evento. Fecha límite 19/10/26</p>
-    <div class="cuenta-atras" data-objetivo="2026-10-20T00:00:00+02:00" data-fin="" role="timer" aria-label="Cuenta atrás para el cierre de pedidos">
-      <p class="cuenta-titulo">Los pedidos se cierran en</p>
-      <div class="cuenta-cajas">
-        <div><span class="c-dias">--</span><small>días</small></div>
-        <div><span class="c-horas">--</span><small>horas</small></div>
-        <div><span class="c-min">--</span><small>min</small></div>
-        <div><span class="c-seg">--</span><small>seg</small></div>
-      </div>
-    </div>
-    <p class="merch-dudas">¿Dudas? <a href="https://ig.me/m/celtiqhard" target="_blank" rel="noopener">Escríbenos por Instagram</a></p>
   </div>
 </section>
 
@@ -426,56 +402,7 @@
 </div>
 <!-- ===== FIN SECCIÓN MERCHANDISING ===== -->
 
-<!-- ===== FORMULARIO DE PEDIDO (NUEVO) ===== -->
-<div id="merch-form" role="dialog" aria-modal="true" aria-labelledby="merch-form-titulo" aria-hidden="true">
-  <div class="form-caja">
-    <button class="form-cerrar" type="button" aria-label="Cerrar">&times;</button>
-    <h3 id="merch-form-titulo">Pedir modelo <span class="form-modelo"></span></h3>
-    <form novalidate>
-      <input type="hidden" name="Modelo" value="">
-      <input type="hidden" name="_subject" value="Nuevo pedido de merch">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-      <label for="pedido-nombre">Nombre y apellidos</label>
-      <input id="pedido-nombre" name="Nombre" type="text" required autocomplete="name">
-
-      <label for="pedido-contacto">Instagram o teléfono</label>
-      <input id="pedido-contacto" name="Contacto" type="text" required placeholder="@tuusuario o 6XX XXX XXX">
-
-      <label for="pedido-prenda">Prenda</label>
-      <select id="pedido-prenda" name="Prenda" required>
-        <option value="">Elige una opción</option>
-        <option value="Camiseta normal (15 €)">Camiseta normal: 15 €</option>
-        <option value="Camiseta oversize (20 €)">Camiseta oversize: 20 €</option>
-        <option value="Sudadera oversize (35 €)">Sudadera oversize: 35 €</option>
-      </select>
-
-      <label for="pedido-talla">Talla</label>
-      <select id="pedido-talla" name="Talla" required>
-        <option value="">Elige una talla</option>
-        <option>XS</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
-      </select>
-
-      <p class="form-nota">Se entrega y se paga en mano el día del evento.</p>
-      <label class="form-check"><input type="checkbox" name="Acepta privacidad" value="Sí" id="pedido-privacidad"> He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a></label>
-      <p class="form-info">Responsable: Asociación Galicia Hardstyle. Finalidad: gestionar tu pedido y contactarte para la entrega. Puedes ejercer tus derechos escribiendo a celtiqhard@gmail.com. Más información en la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</p>
-      <p class="form-mensaje" role="status" aria-live="polite"></p>
-      <button type="submit" class="btn-merch form-enviar">Enviar pedido</button>
-    </form>
-    <div class="form-ok" hidden>
-      <p class="form-ok-titulo">Pedido enviado</p>
-      <p>Te contactaremos para confirmarlo. Recuerda que se entrega y se paga en mano el día del evento.</p>
-      <button type="button" class="btn-merch form-cerrar-ok">Cerrar</button>
-    </div>
-  </div>
-</div>
-<!-- ===== FIN FORMULARIO DE PEDIDO ===== -->
 
 <section data-bs-version="5.1" class="header18 cid-vpwwmcv4S9 mbr-fullscreen mbr-parallax-background" id="header18-1i">
 
@@ -1114,92 +1041,7 @@
 </script>
 <!-- ===== FIN SCRIPTS MERCHANDISING ===== -->
 
-<!-- ===== SCRIPTS FORMULARIO DE PEDIDO (NUEVO) ===== -->
-<script>
-  (function () {
-    // Correo donde llegan los pedidos (ver instrucciones de activación)
-    var DESTINO = 'https://formsubmit.co/ajax/celtiqhard@gmail.com';
 
-    var modal = document.getElementById('merch-form');
-    if (!modal) return;
-    var form = modal.querySelector('form');
-    var ok = modal.querySelector('.form-ok');
-    var mensaje = modal.querySelector('.form-mensaje');
-    var enviar = modal.querySelector('.form-enviar');
-    var ultimoBoton = null;
-
-    function abrir(modelo, boton) {
-      ultimoBoton = boton;
-      form.reset();
-      form.hidden = false;
-      ok.hidden = true;
-      mensaje.textContent = '';
-      enviar.disabled = false;
-      enviar.textContent = 'Enviar pedido';
-      form.elements['Modelo'].value = modelo;
-      form.elements['_subject'].value = 'Nuevo pedido de merch: modelo ' + modelo;
-      modal.querySelector('.form-modelo').textContent = modelo;
-      modal.classList.add('abierto');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('pedido-nombre').focus();
-    }
-    function cerrar() {
-      modal.classList.remove('abierto');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (ultimoBoton) ultimoBoton.focus();
-    }
-
-    document.querySelectorAll('#merch .btn-pedir').forEach(function (b) {
-      b.addEventListener('click', function () { abrir(b.getAttribute('data-modelo'), b); });
-    });
-    modal.querySelector('.form-cerrar').addEventListener('click', cerrar);
-    modal.querySelector('.form-cerrar-ok').addEventListener('click', cerrar);
-    modal.addEventListener('click', function (e) { if (e.target === modal) cerrar(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('abierto')) cerrar(); });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var faltan = [];
-      if (!form.elements['Nombre'].value.trim()) faltan.push('tu nombre');
-      if (!form.elements['Contacto'].value.trim()) faltan.push('tu Instagram o teléfono');
-      if (!form.elements['Prenda'].value) faltan.push('la prenda');
-      if (!form.elements['Talla'].value) faltan.push('la talla');
-      if (!document.getElementById('pedido-privacidad').checked) faltan.push('aceptar la política de privacidad');
-      if (faltan.length) {
-        mensaje.textContent = 'Falta rellenar: ' + faltan.join(', ') + '.';
-        return;
-      }
-
-      var datos = {};
-      new FormData(form).forEach(function (valor, clave) { datos[clave] = valor; });
-
-      enviar.disabled = true;
-      enviar.textContent = 'Enviando...';
-      mensaje.textContent = '';
-
-      fetch(DESTINO, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(datos)
-      })
-        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-        .then(function (res) {
-          if (!res.ok || String(res.j.success) !== 'true') throw new Error('envío fallido');
-          form.hidden = true;
-          ok.hidden = false;
-          modal.querySelector('.form-cerrar-ok').focus();
-        })
-        .catch(function () {
-          mensaje.textContent = 'No se ha podido enviar el pedido. Inténtalo de nuevo o escríbenos por Instagram.';
-          enviar.disabled = false;
-          enviar.textContent = 'Enviar pedido';
-        });
-    });
-  })();
-</script>
-<!-- ===== FIN SCRIPTS FORMULARIO DE PEDIDO ===== -->
 <!-- ===== SCRIPTS CUENTAS ATRÁS (NUEVO) ===== -->
 <script>
   (function () {
@@ -1234,33 +1076,7 @@
 </script>
 <!-- ===== FIN SCRIPTS CUENTAS ATRÁS ===== -->
 
-<!-- ===== CIERRE AUTOMÁTICO DE PEDIDOS (NUEVO) ===== -->
-<script>
-  (function () {
-    // Los pedidos se cierran al terminar el 19/10/26 (hora de España)
-    var CIERRE = new Date('2026-10-20T00:00:00+02:00');
-    if (new Date() < CIERRE) return;
 
-    var seccion = document.getElementById('merch');
-    if (!seccion) return;
-    seccion.classList.add('pedidos-cerrados');
-
-    // Desactivar los botones de pedir (también evita que se abra el formulario)
-    seccion.querySelectorAll('.btn-pedir').forEach(function (b) {
-      var nuevo = b.cloneNode(false);
-      nuevo.disabled = true;
-      nuevo.textContent = 'Pedidos cerrados';
-      b.parentNode.replaceChild(nuevo, b);
-    });
-
-    // Cambiar el texto de cómo pedir por el aviso de cierre
-    var texto = seccion.querySelector('.merch-pedido');
-    if (texto) {
-      texto.outerHTML = '<p class="merch-cerrado" role="status">El plazo de pedidos terminó el 19/10/26. ¡Gracias a todos los que habéis pedido!</p>';
-    }
-  })();
-</script>
-<!-- ===== FIN CIERRE AUTOMÁTICO DE PEDIDOS ===== -->
 
 <!-- ===== SCRIPTS AÑADIR AL CALENDARIO (NUEVO) ===== -->
 <script>
@@ -1300,7 +1116,7 @@
     boton.addEventListener('click', function () {
       if (typeof gtag === 'function') {
         gtag('event', 'clic_comprar_entradas', {
-          evento: 'Maxims 14 noviembre',
+          evento: '12 diciembre (lugar por desvelar)',
           link_url: boton.href,
           transport_type: 'beacon'
         });
