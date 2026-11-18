@@ -161,8 +161,9 @@
 /* ===== FIN SECCIÓN ENTRADAS ===== */
 
 /* ===== EVENTO SALA QUEEN (NUEVO) ===== */
-#entradas .evento-grid{display:grid;gap:2.5rem;align-items:center;max-width:1000px;margin:0 auto}
-@media (min-width:900px){#entradas .evento-grid{grid-template-columns:1fr minmax(0,400px)}}
+#entradas .evento-grid{display:flex;flex-direction:column;align-items:center;gap:3rem;max-width:640px;margin:0 auto;text-align:center}
+#entradas .evento-info{width:100%;display:flex;flex-direction:column;align-items:center}
+#entradas .evento-info > *{margin-left:auto;margin-right:auto}
 #entradas .evento-dia{color:#dc3545;font-weight:900;font-size:clamp(1.3rem,3.5vw,1.8rem);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 0}
 #entradas .evento-fecha{margin-top:.2rem;white-space:nowrap;font-size:clamp(2.4rem,10vw,3.8rem)}
 #entradas .evento-sala{margin:1.5rem auto 2rem}
@@ -177,6 +178,12 @@
 #entradas .evento-cartel:hover{transform:scale(1.02)}
 #entradas .evento-cartel img{display:block;width:100%;height:auto}
 #entradas .evento-mapa:focus-visible,#entradas .evento-cartel:focus-visible{outline:3px solid #fff;outline-offset:4px}
+#entradas .evento-tag{padding-left:.3em}
+#entradas .evento-dia{padding-left:.06em}
+#entradas .evento-estilos{padding-left:.04em}
+#entradas .btn-entradas{text-indent:.05em}
+#entradas .cuenta-titulo{padding-left:.25em}
+#entradas .evento-cartel{width:100%}
 /* ===== FIN EVENTO SALA QUEEN ===== */
 
 /* ===== CARRUSEL DJs (NUEVO) ===== */
