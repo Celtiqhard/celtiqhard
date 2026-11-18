@@ -147,17 +147,23 @@
 #entradas .btn-entradas:focus-visible{outline:3px solid #fff;outline-offset:4px}
 /* ===== FIN SECCIÓN ENTRADAS ===== */
 
-/* ===== LUGAR SECRETO (NUEVO) ===== */
-#entradas .evento-secreto{margin:0 auto 2rem;max-width:30rem}
-#entradas .secreto-fila{display:flex;justify-content:center;align-items:center;gap:.75rem;margin:0 0 .5rem;font-size:1.2rem}
-#entradas .secreto-etiqueta{font-weight:700;opacity:.85;min-width:4.5rem;text-align:right}
-#entradas .secreto-tapado{position:relative;display:inline-block;color:transparent;background:#1a1a1a;border:1px solid #dc3545;border-radius:4px;padding:0 .4rem;letter-spacing:.05em;overflow:hidden;user-select:none}
-#entradas .secreto-tapado::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(220,53,69,.45) 50%,transparent 100%);transform:translateX(-100%);animation:secretoBrillo 2.8s ease-in-out infinite}
-@keyframes secretoBrillo{to{transform:translateX(100%)}}
-@media (prefers-reduced-motion:reduce){#entradas .secreto-tapado::after{animation:none;display:none}}
-#entradas .secreto-texto{margin:.9rem 0 0;opacity:.75;font-size:1rem}
-#entradas .entradas-pronto{margin:1rem auto 0;max-width:26rem;font-size:.95rem;opacity:.7}
-/* ===== FIN LUGAR SECRETO ===== */
+/* ===== EVENTO SALA QUEEN (NUEVO) ===== */
+#entradas .evento-grid{display:grid;gap:2.5rem;align-items:center;max-width:1000px;margin:0 auto}
+@media (min-width:900px){#entradas .evento-grid{grid-template-columns:1fr minmax(0,400px)}}
+#entradas .evento-dia{color:#dc3545;font-weight:900;font-size:clamp(1.3rem,3.5vw,1.8rem);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 0}
+#entradas .evento-fecha{margin-top:.2rem;white-space:nowrap;font-size:clamp(2.4rem,10vw,3.8rem)}
+#entradas .evento-sala{margin:1.5rem auto 2rem}
+#entradas .logo-sala{display:block;width:min(220px,60%);height:auto;margin:0 auto 1rem}
+#entradas .evento-lugar{font-size:1.15rem;line-height:1.5;margin:0 0 .75rem;opacity:1}
+#entradas .evento-lugar strong{font-size:1.35rem;font-weight:900;letter-spacing:.02em}
+#entradas .evento-mapa{display:inline-block;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+#entradas .evento-mapa:hover{color:#ff6b78}
+#entradas .evento-estilos{margin:1rem 0 0;font-size:.95rem;opacity:.7;letter-spacing:.04em}
+#entradas .evento-cartel{display:block;max-width:400px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 0 40px rgba(220,53,69,.35);transition:transform .2s}
+#entradas .evento-cartel:hover{transform:scale(1.02)}
+#entradas .evento-cartel img{display:block;width:100%;height:auto}
+#entradas .evento-mapa:focus-visible,#entradas .evento-cartel:focus-visible{outline:3px solid #fff;outline-offset:4px}
+/* ===== FIN EVENTO SALA QUEEN ===== */
 
 /* ===== CARRUSEL DJs (NUEVO) ===== */
 #features017-1k .embla__viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -324,12 +330,16 @@
 <!-- ===== SECCIÓN ENTRADAS (NUEVO) ===== -->
 <section id="entradas">
   <div class="container">
+    <div class="evento-grid">
+    <div class="evento-info">
     <p class="evento-tag">Próximo evento</p>
+    <p class="evento-dia">Sábado</p>
     <h2 class="evento-fecha">12 DICIEMBRE</h2>
-    <div class="evento-secreto">
-      <p class="secreto-fila"><span class="secreto-etiqueta">Sala</span><span class="secreto-tapado" aria-label="Por desvelar">████████</span></p>
-      <p class="secreto-fila"><span class="secreto-etiqueta">Ciudad</span><span class="secreto-tapado" aria-label="Por desvelar">██████</span></p>
-      <p class="secreto-texto">El lugar se desvela muy pronto. ¿Te atreves a adivinarlo?</p>
+    <div class="evento-sala">
+      <img class="logo-sala" src="img/queen-logo.png" alt="Sala Queen" width="600" height="322">
+      <p class="evento-lugar"><strong>2nd Floor · Sala Queen</strong><br>Avenida de Sanguiñeda, Mos (Vigo)</p>
+      <a class="evento-mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Sala%20Queen%2C%20Avenida%20de%20Sangui%C3%B1eda%2C%20Mos%2C%20Pontevedra" target="_blank" rel="noopener">Cómo llegar</a>
+      <p class="evento-estilos">Hardstyle · Rawstyle · Hardcore · Uptempo</p>
     </div>
     <div class="cuenta-atras" data-objetivo="2026-12-12T23:59:00+01:00" data-fin="¡Ya ha empezado! Nos vemos en la pista." role="timer" aria-label="Cuenta atrás para el evento">
       <p class="cuenta-titulo">Faltan</p>
@@ -346,12 +356,16 @@
         Añadir al calendario
       </button>
       <div id="calendario-menu" class="calendario-menu" hidden>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=CELTIQ%20HARD%20%E2%80%94%20Pr%C3%B3ximo%20evento&amp;dates=20261212T225900Z/20261213T050000Z&amp;location=Lugar%20por%20desvelar&amp;details=Hardstyle%2C%20Rawstyle%20y%20Uptempo.%20El%20lugar%20se%20anunciar%C3%A1%20en%20https%3A//www.instagram.com/celtiqhard/" target="_blank" rel="noopener">Google Calendar (Android)</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=CELTIQ%20HARD%20en%20Sala%20Queen&amp;dates=20261212T225900Z/20261213T050000Z&amp;location=Sala%20Queen%20%282nd%20Floor%29%2C%20Avenida%20de%20Sangui%C3%B1eda%2C%20Mos%2C%20Pontevedra&amp;details=Hardstyle%2C%20Rawstyle%2C%20Hardcore%20y%20Uptempo.%20Entradas%3A%20https%3A//www.entradasqueen.com/es/sala-queen/celtiq-hard/" target="_blank" rel="noopener">Google Calendar (Android)</a>
         <a href="evento.ics">iPhone, Outlook y otros</a>
       </div>
     </div>
-    <a class="btn-entradas" href="https://www.instagram.com/celtiqhard/" target="_blank" rel="noopener">Entérate el primero</a>
-    <p class="entradas-pronto">Entradas a la venta muy pronto. Síguenos en Instagram para no perderte el anuncio.</p>
+    <a class="btn-entradas" href="https://www.entradasqueen.com/es/sala-queen/celtiq-hard/" target="_blank" rel="noopener">Comprar entradas</a>
+    </div>
+    <a class="evento-cartel" href="img/cartel-queen.jpg" target="_blank" rel="noopener">
+      <img src="img/cartel-queen.jpg" alt="Cartel: CELTIQ HARD 360º, sábado 12 de diciembre de 2026, 2nd Floor de Sala Queen, Sanguiñeda (Mos)" width="1080" height="1350" loading="lazy">
+    </a>
+    </div>
   </div>
 </section>
 <!-- ===== FIN SECCIÓN ENTRADAS ===== -->
@@ -1116,7 +1130,7 @@
     boton.addEventListener('click', function () {
       if (typeof gtag === 'function') {
         gtag('event', 'clic_comprar_entradas', {
-          evento: '12 diciembre (lugar por desvelar)',
+          evento: 'Sala Queen 12 diciembre',
           link_url: boton.href,
           transport_type: 'beacon'
         });

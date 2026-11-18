@@ -5,17 +5,17 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:celtiqhard-20261212@celtiqhard.com
-DTSTAMP:20261117T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART:20261212T225900Z
 DTEND:20261213T050000Z
-SUMMARY:CELTIQ HARD — Próximo evento
-LOCATION:Lugar por desvelar
-DESCRIPTION:Hardstyle\, Rawstyle y Uptempo. El lugar se anunciará en https://www.instagram.com/celtiqhard/
+SUMMARY:CELTIQ HARD en Sala Queen
+LOCATION:Sala Queen (2nd Floor)\, Avenida de Sanguiñeda\, Mos\, Pontevedra
+DESCRIPTION:Hardstyle\, Rawstyle\, Hardcore y Uptempo. Entradas: https://www.entradasqueen.com/es/sala-queen/celtiq-hard/
 URL:https://celtiqhard.com/
 BEGIN:VALARM
 TRIGGER:-P1D
 ACTION:DISPLAY
-DESCRIPTION:Mañana es CELTIQ HARD
+DESCRIPTION:Mañana es CELTIQ HARD en Sala Queen
 END:VALARM
 END:VEVENT
 END:VCALENDAR
